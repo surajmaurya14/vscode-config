@@ -249,9 +249,6 @@
     "http.systemCertificatesNode": true,
     "dart.flutterSdkPath": "/Users/suraj/Applications/Flutter/flutter",
     "claudeCode.preferredLocation": "panel",
-    "vs-kubernetes": {
-        "vscode-kubernetes.minikube-path-mac": "/Users/surajmaurya/.vs-kubernetes/tools/minikube/darwin-arm64/minikube",
-    },
     "[markdown]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode",
         "files.trimTrailingWhitespace": false,
