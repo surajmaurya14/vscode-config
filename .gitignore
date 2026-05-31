@@ -1,3 +1,9 @@
 .DS_Store
 *.swp
 *~
+Thumbs.db
+*.log
+
+# install.sh writes timestamped backups next to the live config; never commit them
+.backup-*/
+.vscode/

@@ -13,6 +13,14 @@
         "command": "cph.judgeView.focus"
     },
     {
+        "key": "ctrl+`",
+        "command": "-workbench.action.terminal.toggleTerminal"
+    },
+    {
+        "key": "ctrl+shift+`",
+        "command": "-workbench.action.terminal.new"
+    },
+    {
         "key": "shift+cmd+/",
         "command": "editor.action.formatDocument",
         "when": "editorHasDocumentFormattingProvider && editorTextFocus && !editorReadonly && !inCompositeEditor"

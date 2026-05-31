@@ -2,7 +2,7 @@
 
 Personal Visual Studio Code configuration — settings, keybindings, snippets, and extension list, with scripts to apply it on a fresh machine and snapshot the current state back into the repo.
 
-Snapshot: VS Code `1.118.1` on macOS (arm64), May 2026.
+Snapshot: VS Code `1.122.1` on macOS (arm64), May 2026.
 
 ## Layout
 
@@ -57,9 +57,11 @@ git push
 ## Highlights
 
 - Theme: built-in **Light+** with **Material Icon Theme** (`pkief.material-icon-theme`).
+- Font: **JetBrains Mono** in the editor, **JetBrainsMono Nerd Font** in the terminal (`brew install --cask font-jetbrains-mono font-jetbrains-mono-nerd-font`); ligatures off by default — flip `editor.fontLigatures` to `true` to enable.
+- AI: **Codeium** (now the *Windsurf Plugin*) for inline completion, **Claude Code** (`anthropic.claude-code`) as the in-editor agent.
 - Sidebar on the right, minimap off, format-on-save on (off for Python — Ruff handles it).
 - Document formatter rebound from `shift+alt+f` → `shift+cmd+/`.
-- C/C++ uses Homebrew `gcc-14` on Apple Silicon (`/opt/homebrew/bin/gcc-14`); change `C_Cpp.default.compilerPath` for Intel Macs or Linux.
+- C/C++ uses Homebrew `gcc-15` on Apple Silicon (`/opt/homebrew/bin/gcc-15`); change `C_Cpp.default.compilerPath` and the `cph.language.*.Command` values to match your installed compiler (Intel Macs, Linux, or a different GCC version).
 - Python: [Ruff](https://marketplace.visualstudio.com/items?itemName=charliermarsh.ruff) for format/lint.
 - JS / TS / JSON / HTML / CSS / Markdown / YAML formatted by Prettier (or `redhat.vscode-yaml` for YAML).
 - The `cph.*` settings and the `ctrl+shift+\`` / `ctrl+\`` bindings target [Competitive Programming Helper](https://marketplace.visualstudio.com/items?itemName=DivyanshuAgrawal.competitive-programming-helper).

@@ -4,7 +4,6 @@
     "editor.fontWeight": "bold",
     "editor.bracketPairColorization.enabled": true,
     "editor.linkedEditing": true,
-    "editor.suggestSelection": "first",
     "prettier.tabWidth": 4,
     "extensions.autoUpdate": false,
 
@@ -50,9 +49,6 @@
     "terminal.integrated.fontWeight": "bold",
     "terminal.integrated.lineHeight": 1.4,
 
-    "liveFrame.url": "http://localhost:3000",
-    "liveFrame.title": "Local Development",
-    "liveFrame.pane": "Beside",
     "window.zoomLevel": 0,
 
     "svg.preview.mode": "svg",
@@ -191,28 +187,24 @@
         },
         "textMateRules": []
     },
-    "cph.language.cpp.Command": "g++-14",
-    "cph.language.c.Command": "gcc-14",
-    "C_Cpp.default.compilerPath": "/opt/homebrew/bin/gcc-14",
+    "cph.language.cpp.Command": "g++-15",
+    "cph.language.c.Command": "gcc-15",
+    "C_Cpp.default.compilerPath": "/opt/homebrew/bin/gcc-15",
     "C_Cpp.default.intelliSenseMode": "macos-gcc-arm64",
     "C_Cpp.default.cStandard": "gnu17",
     "C_Cpp.default.cppStandard": "gnu++17",
     "diffEditor.ignoreTrimWhitespace": false,
-    "workbench.editorLargeFileConfirmation": 8196,
+    "workbench.editorLargeFileConfirmation": 1024,
     "markdown-pdf.displayHeaderFooter": false,
     "workbench.editor.empty.hint": "hidden",
     "chat.instructionsFilesLocations": {
         ".github/instructions": true,
     },
     "docker.extension.enableComposeLanguageServer": false,
+    // "python.analysis.typeCheckingMode": "basic",
     "editor.inlineSuggest.suppressSuggestions": true,
     "terminal.integrated.inheritEnv": false,
-    "codetour.showMarkers": true,
     "codeium.disableSupercomplete": true,
-    "codeium.enableConfig": {
-        "*": true,
-    },
-    "tabnine.experimentalAutoImports": true,
     "[yaml]": {
         "editor.defaultFormatter": "redhat.vscode-yaml",
         "diffEditor.ignoreTrimWhitespace": false,
@@ -253,14 +245,86 @@
     "[typescriptreact]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode",
     },
-    "gitlens.ai.model": "vscode",
-    "gitlens.ai.vscode.model": "copilot:gpt-4.1",
     "diffEditor.codeLens": true,
-    "geminicodeassist.displayInlineContextHint": false,
     "http.systemCertificatesNode": true,
     "dart.flutterSdkPath": "/Users/suraj/Applications/Flutter/flutter",
     "claudeCode.preferredLocation": "panel",
+    "vs-kubernetes": {
+        "vscode-kubernetes.minikube-path-mac": "/Users/surajmaurya/.vs-kubernetes/tools/minikube/darwin-arm64/minikube",
+    },
     "[markdown]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "files.trimTrailingWhitespace": false,
     },
+    "terminal.explorerKind": "external",
+    "terminal.external.osxExec": "Ghostty.app",
+
+    // --- Performance: exclude heavy dirs from file watching & search ---
+    "files.watcherExclude": {
+        "**/node_modules/**": true,
+        "**/.git/objects/**": true,
+        "**/.git/subtree-cache/**": true,
+        "**/dist/**": true,
+        "**/build/**": true,
+        "**/__pycache__/**": true,
+        "**/.venv/**": true,
+        "**/.mypy_cache/**": true,
+        "**/.pytest_cache/**": true,
+        "**/vendor/**": true,
+        "**/.next/**": true,
+        "**/coverage/**": true,
+    },
+    "search.exclude": {
+        "**/node_modules": true,
+        "**/dist": true,
+        "**/build": true,
+        "**/.next": true,
+        "**/coverage": true,
+        "**/__pycache__": true,
+        "**/.venv": true,
+        "**/vendor": true,
+        "**/*.lock": true,
+        "**/package-lock.json": true,
+        "**/yarn.lock": true,
+        "**/pnpm-lock.yaml": true,
+    },
+    "search.smartCase": true,
+
+    // --- Files hygiene ---
+    "files.trimTrailingWhitespace": true,
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true,
+    "files.autoSave": "onFocusChange",
+
+    // --- Editor UX ---
+    "editor.fontFamily": "JetBrains Mono, Menlo, Monaco, monospace",
+    "editor.fontLigatures": false,
+    "editor.stickyScroll.enabled": true,
+    "editor.guides.bracketPairs": "active",
+    "editor.inlayHints.enabled": "onUnlessPressed",
+    "editor.rulers": [
+        100
+    ],
+    "editor.renderWhitespace": "boundary",
+    "editor.cursorSmoothCaretAnimation": "on",
+    "editor.smoothScrolling": true,
+    "workbench.list.smoothScrolling": true,
+    "workbench.editor.limit.enabled": true,
+    "workbench.editor.limit.value": 10,
+    "workbench.editor.limit.perEditorGroup": true,
+
+    // --- Terminal ---
+    "terminal.integrated.fontFamily": "JetBrainsMono Nerd Font, Menlo, monospace",
+    "terminal.integrated.scrollback": 10000,
+    "terminal.integrated.defaultProfile.osx": "zsh",
+
+    // --- Privacy ---
+    "telemetry.telemetryLevel": "off",
+
+    // --- Git ---
+    "git.autofetch": true,
+    "git.autofetchPeriod": 180,
+    "git.confirmSync": false,
+    "git.enableSmartCommit": true,
+    "git.suggestSmartCommit": false,
 }

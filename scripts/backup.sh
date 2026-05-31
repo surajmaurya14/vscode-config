@@ -22,9 +22,20 @@ else
 fi
 
 mkdir -p "$REPO_DIR/User/snippets"
-cp "$VSCODE_USER/settings.json"                      "$REPO_DIR/User/settings.json"
-cp "$VSCODE_USER/keybindings.json"                   "$REPO_DIR/User/keybindings.json"
-cp "$VSCODE_USER/snippets/sumconsole.code-snippets"  "$REPO_DIR/User/snippets/sumconsole.code-snippets"
+shopt -s nullglob  # a glob that matches nothing expands to nothing, not a literal
+
+cp "$VSCODE_USER/settings.json"     "$REPO_DIR/User/settings.json"
+cp "$VSCODE_USER/keybindings.json"  "$REPO_DIR/User/keybindings.json"
+
+# Mirror snippet files (additions, edits, and removals) so new snippets are
+# captured without editing this script and a missing source never aborts.
+for f in "$REPO_DIR"/User/snippets/*.code-snippets; do
+    [[ -f "$VSCODE_USER/snippets/$(basename "$f")" ]] || rm -f "$f"
+done
+for f in "$VSCODE_USER"/snippets/*.code-snippets; do
+    cp "$f" "$REPO_DIR/User/snippets/$(basename "$f")"
+done
+
 "$CODE_BIN" --list-extensions | sort > "$REPO_DIR/extensions.txt"
 
 echo "Snapshot updated. Review with: git -C \"$REPO_DIR\" diff"

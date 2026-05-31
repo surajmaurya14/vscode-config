@@ -24,24 +24,34 @@ else
 fi
 
 mkdir -p "$VSCODE_USER/snippets"
+shopt -s nullglob  # a glob that matches nothing expands to nothing, not a literal
+
+# Files to back up: the two explicit configs plus every live snippet file
+# (globbed, so new snippets need no edit here).
+config_files=( settings.json keybindings.json )
+for f in "$VSCODE_USER"/snippets/*.code-snippets; do
+    config_files+=( "snippets/$(basename "$f")" )
+done
 
 # Backup any existing files before overwriting.
 BACKUP_DIR="$VSCODE_USER/.backup-$(date +%Y%m%d-%H%M%S)"
 needs_backup=0
-for f in settings.json keybindings.json snippets/sumconsole.code-snippets; do
+for f in "${config_files[@]}"; do
     [[ -f "$VSCODE_USER/$f" ]] && needs_backup=1
 done
 if (( needs_backup )); then
     mkdir -p "$BACKUP_DIR/snippets"
-    for f in settings.json keybindings.json snippets/sumconsole.code-snippets; do
+    for f in "${config_files[@]}"; do
         [[ -f "$VSCODE_USER/$f" ]] && cp "$VSCODE_USER/$f" "$BACKUP_DIR/$f"
     done
     echo "Backed up existing config to: $BACKUP_DIR"
 fi
 
-cp "$REPO_DIR/User/settings.json"                      "$VSCODE_USER/settings.json"
-cp "$REPO_DIR/User/keybindings.json"                   "$VSCODE_USER/keybindings.json"
-cp "$REPO_DIR/User/snippets/sumconsole.code-snippets"  "$VSCODE_USER/snippets/sumconsole.code-snippets"
+cp "$REPO_DIR/User/settings.json"     "$VSCODE_USER/settings.json"
+cp "$REPO_DIR/User/keybindings.json"  "$VSCODE_USER/keybindings.json"
+for f in "$REPO_DIR"/User/snippets/*.code-snippets; do
+    cp "$f" "$VSCODE_USER/snippets/$(basename "$f")"
+done
 echo "Installed config to: $VSCODE_USER"
 
 echo "Installing extensions..."

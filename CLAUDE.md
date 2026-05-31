@@ -24,7 +24,7 @@ Both scripts auto-detect macOS / Linux / Windows-bash, locate `code` on `PATH` (
 
 These are real paths/IDs for the maintainer's macOS Apple-Silicon setup, not portable defaults. Don't generalize them unless asked:
 
-- `C_Cpp.default.compilerPath` and `cph.language.{c,cpp}.Command` → Homebrew `gcc-14` at `/opt/homebrew/bin/gcc-14`.
+- `C_Cpp.default.compilerPath` and `cph.language.{c,cpp}.Command` → Homebrew `gcc-15` at `/opt/homebrew/bin/gcc-15`.
 - `C_Cpp.default.intelliSenseMode` → `macos-gcc-arm64`.
 - `dart.flutterSdkPath` → `/Users/suraj/Applications/Flutter/flutter`.
 
